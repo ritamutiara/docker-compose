@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  mongodb-projek:
+    image: mongo:latest
+    container_name: mongodb-projek
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ritalidya
+      MONGO_INITDB_ROOT_PASSWORD: ritalidya
+      MONGO_INITDB_DATABASE: admin

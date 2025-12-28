@@ -1,0 +1,8 @@
+version: "3.9"
+
+services:
+  mjs:
+    environment:
+      MODE: production
+      DEBUG: "false"
+    restart: always

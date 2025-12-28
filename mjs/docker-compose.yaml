@@ -1,0 +1,6 @@
+version: "3.8"
+
+services:
+  nginx-mjs:
+    container_name: nginx-mjs
+    image: nginx:latest

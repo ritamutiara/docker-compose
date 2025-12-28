@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  mjs:
+    container_name: mjs
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    image: app-golang:1.0.0
+    environment:
+      - APP_PORT=8080
+      - MODE=local
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 5s
+      timeout: 5s
+      retries: 3

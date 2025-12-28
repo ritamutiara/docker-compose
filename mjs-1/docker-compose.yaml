@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+
+  #this is tes nginx
+  nginx-tes:
+    container_name: nginx-tes
+    image: nginx:latest
+
+  #this is tes mongodb
+  mongodb-tes:
+    image: mongo:latest
+    container_name: mongodb-tes

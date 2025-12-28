@@ -1,0 +1,31 @@
+services:
+  mongodb-coba:
+    image: mongo:latest
+    container_name: mongodb-coba
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ritalidya
+      MONGO_INITDB_ROOT_PASSWORD: ritalidya
+    networks:
+      - network_example
+    volumes:
+      - "./data-mongo:/data/db"
+
+  mongodb-express-coba:
+    image: mongo-express:latest
+    container_name: mongodb-express-coba
+    depends_on:
+      - mongodb-coba
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ritalidya
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ritalidya
+      ME_CONFIG_MONGODB_SERVER: mongodb-coba
+    networks:
+      - network_example
+
+networks:
+  network_example:
+   driver: bridge
